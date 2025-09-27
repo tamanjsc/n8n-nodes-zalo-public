@@ -12,6 +12,20 @@ và dự án này tuân thủ [Semantic Versioning](https://semver.org/spec/v2.0
 - **[CHANGELOG_USER.md](./CHANGELOG_USER.md)** - User-friendly (chỉ highlights)
 
 ## [Unreleased]
+## [0.0.6] - 2025-09-27
+
+### Added
+- Automated publish process
+- Version 0.0.6 release
+
+### Changed
+- Updated dependencies and documentation
+
+### Technical Details
+- Published via automated script
+- Full npmjs and GitHub synchronization
+- Complete changelog and versioning
+
 ## [0.0.5] - 2025-09-27
 
 ### Added
