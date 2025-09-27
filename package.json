@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-zalo-public",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Các node hỗ trợ Zalo cho n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -21,7 +21,13 @@
   },
   "main": "index.js",
   "files": [
-    "dist"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.map",
+    "dist/**/*.png",
+    "dist/**/*.svg",
+    "README.md",
+    "LICENSE.md"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,

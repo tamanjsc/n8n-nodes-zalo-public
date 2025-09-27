@@ -6,6 +6,20 @@ Format dựa trên [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 và dự án này tuân thủ [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.0.3] - 2025-09-27
+
+### Added
+- Automated publish process
+- Version 0.0.3 release
+
+### Changed
+- Updated dependencies and documentation
+
+### Technical Details
+- Published via automated script
+- Full npmjs and GitHub synchronization
+- Complete changelog and versioning
+
 ## [0.0.2] - 2025-09-27
 
 ### Added
