@@ -137,3 +137,6 @@ dist-original/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Admin changelog (not published to GitHub)
+CHANGELOG.md

@@ -8,15 +8,43 @@ Hệ thống publish đã được thiết lập hoàn chỉnh với:
 - ✅ **Tự động hóa 100%** - Từ version bump đến publish
 - ✅ **Đồng bộ npmjs & GitHub** - Publish cùng lúc cả hai platform
 - ✅ **Tự động tạo GitHub Releases** - Không chỉ tags mà còn tạo releases đẹp
-- ✅ **Changelog tự động** - Cập nhật CHANGELOG.md, VERSIONING.md
+- ✅ **Dual Changelog System** - CHANGELOG.md (admin) + CHANGELOG_USER.md (user)
+- ✅ **GitHub chỉ publish user changelog** - CHANGELOG.md không được push lên GitHub
 - ✅ **Backup tự động** - Sao lưu source code trước khi obfuscate
 - ✅ **Obfuscation** - Mã hóa code trước khi publish
 - ✅ **Git integration** - Commit, tag, push tự động
 - ✅ **Dry-run support** - Test trước khi publish thật
 
+## 🔒 Quy tắc Publish
+
+### 📝 Changelog System
+- **CHANGELOG.md** - Chi tiết đầy đủ cho developers/admins (KHÔNG publish lên GitHub)
+- **CHANGELOG_USER.md** - User-friendly cho end users (ĐƯỢC publish lên GitHub)
+- **GitHub Releases** - Chỉ sử dụng nội dung từ CHANGELOG_USER.md
+
+### 🚀 Auto Publish Process
+1. **Generate user changelog** - Tự động tạo CHANGELOG_USER.md
+2. **Update version** - Bump version trong package.json
+3. **Publish to npm** - Upload package lên npmjs
+4. **Push to GitHub** - Chỉ push CHANGELOG_USER.md (không push CHANGELOG.md)
+5. **Create GitHub release** - Tạo release với user-friendly notes
+
 ## 🛠️ Cách sử dụng
 
-### 1. 📦 NPM Scripts (Khuyến nghị)
+### 1. 🚀 Auto Publish (Khuyến nghị)
+
+```bash
+# Auto publish patch version (0.0.1 → 0.0.2)
+npm run publish:auto
+
+# Auto publish minor version (0.0.1 → 0.1.0)
+npm run publish:auto:minor
+
+# Auto publish major version (0.0.1 → 1.0.0)
+npm run publish:auto:major
+```
+
+### 2. 📦 Manual Publish
 
 ```bash
 # Xem hướng dẫn đầy đủ
@@ -25,19 +53,19 @@ npm run publish:help
 # Test trước khi publish (BẮT BUỘC)
 npm run publish:dry
 
-# Publish patch version (0.6.9 → 0.6.10)
+# Publish patch version (0.0.1 → 0.0.2)
 npm run publish:patch
 
-# Publish minor version (0.6.9 → 0.7.0)  
+# Publish minor version (0.0.1 → 0.1.0)  
 npm run publish:minor
 
-# Publish major version (0.6.9 → 1.0.0)
+# Publish major version (0.0.1 → 1.0.0)
 npm run publish:major
 
 # Obfuscate code only
 npm run obfuscate
 
-# Publish obfuscated version (RECOMMENDED)
+# Publish obfuscated version
 npm run publish:obfuscated
 
 # Restore source code for editing
@@ -45,6 +73,9 @@ npm run restore:source
 
 # Backup source code
 npm run backup:source
+
+# Generate user changelog
+npm run changelog:user
 ```
 
 ### 2. 🔒 Obfuscation Process

@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-zalo-public",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Các node hỗ trợ Zalo cho n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -27,7 +27,8 @@
     "dist/**/*.png",
     "dist/**/*.svg",
     "README.md",
-    "LICENSE.md"
+    "LICENSE.md",
+    "CHANGELOG_USER.md"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
@@ -79,6 +80,9 @@
     "publish:major": "node scripts/publish.js major",
     "publish:dry": "node scripts/publish.js patch --dry-run",
     "publish:help": "node scripts/publish.js --help",
+    "publish:auto": "node scripts/auto-publish.js patch",
+    "publish:auto:minor": "node scripts/auto-publish.js minor",
+    "publish:auto:major": "node scripts/auto-publish.js major",
     "obfuscate": "node scripts/obfuscate.js",
     "publish:obfuscated": "node scripts/publish-obfuscated.js",
     "restore:source": "node scripts/restore-source.js",

@@ -4,7 +4,29 @@
 
 ## [Unreleased]
 
+## [0.0.5] - 2025-09-27
+
 ## [0.0.4] - 2025-09-27
+
+### 🎉 What's New
+- **Dual Changelog System** - Separate admin and user changelogs
+- **Smart GitHub Releases** - User-friendly release notes
+- **Enhanced Documentation** - Complete guides and examples
+
+### ✨ Key Features
+- **ZaloLoginByQr** - QR Code authentication with webhooks
+- **ZaloSendMessage** - Send messages to users and groups
+- **ZaloUser** - Manage users and friends
+- **ZaloGroup** - Complete group management
+- **ZaloMessageTrigger** - Listen to new messages
+- **ZaloFriendTrigger** - Friend request triggers
+- **ZaloPoll** - Create and manage polls
+- **ZaloTag** - User tagging system
+
+### 🔧 Improvements
+- **Package Size** - Optimized to 81.1kB
+- **Performance** - Fast and reliable
+- **Documentation** - Complete guides and examples
 
 ## [0.0.3] - 2025-09-27
 

@@ -48,7 +48,28 @@ function generateUserChangelog(adminContent) {
                 userLines.push('');
                 
                 // Add version-specific content
-                if (currentVersion === '0.0.3') {
+                if (currentVersion === '0.0.4') {
+                    userLines.push('### 🎉 What\'s New');
+                    userLines.push('- **Dual Changelog System** - Separate admin and user changelogs');
+                    userLines.push('- **Smart GitHub Releases** - User-friendly release notes');
+                    userLines.push('- **Enhanced Documentation** - Complete guides and examples');
+                    userLines.push('');
+                    userLines.push('### ✨ Key Features');
+                    userLines.push('- **ZaloLoginByQr** - QR Code authentication with webhooks');
+                    userLines.push('- **ZaloSendMessage** - Send messages to users and groups');
+                    userLines.push('- **ZaloUser** - Manage users and friends');
+                    userLines.push('- **ZaloGroup** - Complete group management');
+                    userLines.push('- **ZaloMessageTrigger** - Listen to new messages');
+                    userLines.push('- **ZaloFriendTrigger** - Friend request triggers');
+                    userLines.push('- **ZaloPoll** - Create and manage polls');
+                    userLines.push('- **ZaloTag** - User tagging system');
+                    userLines.push('');
+                    userLines.push('### 🔧 Improvements');
+                    userLines.push('- **Package Size** - Optimized to 81.1kB');
+                    userLines.push('- **Performance** - Fast and reliable');
+                    userLines.push('- **Documentation** - Complete guides and examples');
+                    userLines.push('');
+                } else if (currentVersion === '0.0.3') {
                     userLines.push('### 🎉 What\'s New');
                     userLines.push('- **Complete Zalo Integration** - 8 powerful nodes for n8n');
                     userLines.push('- **Professional Package** - Optimized for production use');

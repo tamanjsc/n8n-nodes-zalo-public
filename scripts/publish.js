@@ -371,6 +371,12 @@ Co-authored-by: AI Assistant <ai@assistant.com>`;
         execSync('npm publish --dry-run', { stdio: 'inherit' });
         this.success('npm dry-run completed');
       } else {
+        // Ensure CHANGELOG_USER.md exists before publishing
+        if (!fs.existsSync('./CHANGELOG_USER.md')) {
+          this.info('Generating user changelog before publish...');
+          execSync('node scripts/generate-user-changelog.js', { stdio: 'pipe' });
+        }
+        
         execSync('npm publish', { stdio: 'inherit' });
         this.success(`Published to npm: ${config.packageName}@${this.newVersion}`);
       }
@@ -387,6 +393,19 @@ Co-authored-by: AI Assistant <ai@assistant.com>`;
         this.success('GitHub push skipped (dry-run mode)');
         return;
       }
+
+      // Only add specific files (exclude CHANGELOG.md)
+      execSync('git add package.json README.md CHANGELOG_USER.md VERSIONING.md PUBLISH_GUIDE.md dist/ scripts/ .gitignore', { stdio: 'pipe' });
+      
+      // Commit changes
+      execSync(`git commit -m "🚀 Release v${this.newVersion}
+
+- Version: ${this.newVersion}
+- Package: ${config.packageName}
+- Release Date: ${new Date().toISOString().split('T')[0]}
+- User-friendly changelog only
+
+Co-authored-by: AI Assistant <ai@assistant.com>"`, { stdio: 'pipe' });
 
       // Push commits
       execSync(`git push ${config.gitRemote} ${config.mainBranch}`, { stdio: 'inherit' });
