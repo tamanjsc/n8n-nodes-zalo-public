@@ -89,6 +89,7 @@ MAJOR.MINOR.PATCH
 ## 📊 Version History
 
 | Version | Type | Date | Changes | Status |
+| 0.0.2 | Patch | 2025-09-27 | Automated publish | ✅ Active |
 |---------|------|------|---------|--------|
 | 0.6.9 | Current | 2025-01-16 | Initial public release, cleanup | ✅ Active |
 | 0.6.10 | Patch | Planned | Bug fixes, improvements | ⏳ Planned |
