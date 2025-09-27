@@ -132,6 +132,9 @@ backups/
 # Source preservation
 dist-original/
 
+# Allow dist/ for publishing (contains built files)
+!dist/
+
 # Development
 .env.local
 .env.development.local
