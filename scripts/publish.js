@@ -202,6 +202,15 @@ class Publisher {
 
     fs.writeFileSync(changelogPath, changelog);
     this.success('CHANGELOG.md updated');
+    
+    // Generate user-friendly changelog
+    this.info('Generating user-friendly changelog...');
+    try {
+      execSync('node scripts/generate-user-changelog.js', { stdio: 'pipe' });
+      this.success('CHANGELOG_USER.md updated');
+    } catch (error) {
+      this.warning(`Failed to generate user changelog: ${error.message}`);
+    }
   }
 
   async updateVersioning() {
@@ -431,7 +440,40 @@ Co-authored-by: AI Assistant <ai@assistant.com>`;
   }
 
   generateReleaseNotes() {
-    const releaseNotes = `# 🚀 Release v${this.newVersion}
+    // Try to read user-friendly changelog first
+    let releaseNotes = '';
+    
+    try {
+      if (fs.existsSync('./CHANGELOG_USER.md')) {
+        const userChangelog = fs.readFileSync('./CHANGELOG_USER.md', 'utf8');
+        // Extract the latest version section
+        const versionMatch = userChangelog.match(new RegExp(`## \\[${this.newVersion}\\] - [^\\n]+\\n([\\s\\S]*?)(?=## \\[|$)`));
+        if (versionMatch) {
+          releaseNotes = `# 🚀 Release v${this.newVersion}
+
+${versionMatch[1].trim()}
+
+## 🔗 Links
+- [NPM Package](https://www.npmjs.com/package/n8n-nodes-zalo-public)
+- [GitHub Repository](${config.githubRepo})
+- [Documentation](./README.md)
+- [Full Changelog](./CHANGELOG.md)
+
+## 📞 Support
+- **Maintainer**: Hayashi Itsuki
+- **Contact**: 0899.524.011
+- **Issues**: [GitHub Issues](${config.githubRepo}/issues)
+
+---`;
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to read user changelog, using default release notes');
+    }
+    
+    // Fallback to default release notes
+    if (!releaseNotes) {
+      releaseNotes = `# 🚀 Release v${this.newVersion}
 
 ## 📦 Package Information
 - **Package**: n8n-nodes-zalo-public
@@ -474,6 +516,7 @@ Co-authored-by: AI Assistant <ai@assistant.com>`;
 - **Issues**: [GitHub Issues](${config.githubRepo}/issues)
 
 ---`;
+    }
 
     return releaseNotes;
   }

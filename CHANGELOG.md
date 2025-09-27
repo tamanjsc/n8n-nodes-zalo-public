@@ -1,11 +1,31 @@
 # 📝 CHANGELOG - n8n-nodes-zalo-public
 
+> **Developer/Admin Changelog** - Chi tiết đầy đủ cho developers và admins
+
 Tất cả thay đổi quan trọng của dự án này sẽ được ghi lại trong file này.
 
 Format dựa trên [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 và dự án này tuân thủ [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+**📋 Changelog Types:**
+- **[CHANGELOG.md](./CHANGELOG.md)** - Developer/Admin (chi tiết đầy đủ)
+- **[CHANGELOG_USER.md](./CHANGELOG_USER.md)** - User-friendly (chỉ highlights)
+
 ## [Unreleased]
+## [0.0.4] - 2025-09-27
+
+### Added
+- Automated publish process
+- Version 0.0.4 release
+
+### Changed
+- Updated dependencies and documentation
+
+### Technical Details
+- Published via automated script
+- Full npmjs and GitHub synchronization
+- Complete changelog and versioning
+
 ## [0.0.3] - 2025-09-27
 
 ### Added

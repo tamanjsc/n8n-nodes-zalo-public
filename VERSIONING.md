@@ -89,6 +89,7 @@ MAJOR.MINOR.PATCH
 ## 📊 Version History
 
 | Version | Type | Date | Changes | Status |
+| 0.0.4 | Patch | 2025-09-27 | Automated publish | ✅ Active |
 | 0.0.3 | Patch | 2025-09-27 | Automated publish | ✅ Active |
 | 0.0.2 | Patch | 2025-09-27 | Automated publish | ✅ Active |
 |---------|------|------|---------|--------|
