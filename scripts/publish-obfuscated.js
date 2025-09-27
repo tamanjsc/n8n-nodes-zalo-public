@@ -58,6 +58,9 @@ if (fs.existsSync('dist')) {
     fs.rmSync('dist', { recursive: true });
 }
 
+// Create dist directory
+fs.mkdirSync('dist', { recursive: true });
+
 if (fs.existsSync(distOriginalDir)) {
     try {
         execSync(`cp -r ${distOriginalDir}/* dist/`, { stdio: 'pipe' });
@@ -105,7 +108,9 @@ fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
 
 // Step 7: Create final backup of obfuscated version
 console.log('💾 Creating obfuscated backup...');
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 const obfuscatedBackupName = `obfuscated-backup-${timestamp}`;
+const backupDir = './backups';
 const obfuscatedBackupPath = path.join(backupDir, `${obfuscatedBackupName}.tar.gz`);
 
 try {

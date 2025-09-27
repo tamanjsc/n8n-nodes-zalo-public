@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-zalo-public",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Các node hỗ trợ Zalo cho n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -21,14 +21,7 @@
   },
   "main": "index.js",
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts",
-    "dist/**/*.map",
-    "dist/**/*.png",
-    "dist/**/*.svg",
-    "README.md",
-    "LICENSE.md",
-    "CHANGELOG_USER.md"
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
@@ -53,6 +46,7 @@
     "eslint": "^9.17.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
     "gulp": "^5.0.1",
+    "javascript-obfuscator": "^4.1.1",
     "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
     "typescript": "^5.7.3"
@@ -88,6 +82,7 @@
     "restore:source": "node scripts/restore-source.js",
     "backup:source": "tar -czf backups/source-backup-$(date +%Y%m%d-%H%M%S).tar.gz dist/ package.json README.md *.md scripts/",
     "changelog:user": "node scripts/generate-user-changelog.js",
-    "test": "echo 'No tests configured yet'"
+    "test": "echo 'No tests configured yet'",
+    "prepublishOnly": "echo \"Using pre-built obfuscated dist files\""
   }
 }
